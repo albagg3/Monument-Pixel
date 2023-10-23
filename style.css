@@ -30,7 +30,7 @@ body{
     position: absolute;
     border-radius: 50%;
     bottom: 50px;
-    left: 10px;
+    right: calc(100% - 40px);
 }
 
 #floor{

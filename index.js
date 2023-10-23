@@ -12,7 +12,7 @@ document.addEventListener("keydown", (event)=>{
     {
         newPlayer.jump();
     }
-    newPlayer.playerElement.style.bottom = `${newPlayer.positionY}px`;
+    newPlayer.playerElement.style.bottom = `${newPlayer.y}px`;
 })
 
 const gameLoop = () =>{
@@ -21,16 +21,16 @@ const gameLoop = () =>{
     newPlayer.addGravity();
     if (frames % 100 === 0)
         game.addObstacle();
-    if(game.obstacles.length != 0)
+    game.moveObstacle();
+    for(let i = 0; i < game.obstacles.length; i++)
     {
-        for(let i = 0; i< game.obsSpeed.length; i++)
-        {
-            game.moveObstacle(element)
-        }
+        newPlayer.checkCollision(game.obstacles[i]);
     }
-    if(newPlayer.positionY === 50)
+    if(newPlayer.y === 50)
         newPlayer.isJumping = false;
     gameLoopId = requestAnimationFrame(gameLoop);
+    if(newPlayer.gameOver)
+        cancelAnimationFrame(gameLoopId);
 }
 
 gameLoop();
