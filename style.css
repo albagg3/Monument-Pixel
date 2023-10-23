@@ -23,14 +23,20 @@ body{
 
 
 #player{
-
-    width:30px;
-    height:30px;
     background-color: rgb(255, 251, 0);
     position: absolute;
     border-radius: 50%;
     bottom: 50px;
     right: calc(100% - 40px);
+}
+
+.stand-player{
+    width:30px;
+    height:60px;
+}
+.bend-player{
+    width:30px;
+    height:30px ;
 }
 
 #floor{
@@ -54,7 +60,15 @@ body{
     height:30px;
     background-color: rgb(255, 140, 0);
     position: absolute;
+    
+}
+
+.obs-down{
     bottom: 50px;
+    right: 0px;
+}
+.obs-top{
+    bottom: 90px;
     right: 0px;
 }
 

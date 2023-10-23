@@ -5,7 +5,7 @@ class Player
     constructor(){
         this.y = 50;
         this.x = 40;
-        this.speed = 100;
+        this.speed = 150;
         this.gravity = 3;
         this.isJumping = false;
         this.playerElement = document.querySelector("#player")
@@ -14,10 +14,26 @@ class Player
     }
     jump()
     {
-        if(!this.isJumping)
+        if(!this.isJumping && !this.gameOver)
         {
             this.isJumping = true;
             this.y += this.speed;
+        }
+    }
+    down()
+    {
+        if(!this.gameOver)
+        {
+            this.playerElement.classList.remove("stand-player");
+            this.playerElement.classList.add("bend-player");
+        }
+    }
+    up()
+    {
+        if(!this.gameOver)
+        {
+            this.playerElement.classList.add("stand-player");
+            this.playerElement.classList.remove("bend-player");
         }
     }
     addGravity()
@@ -30,14 +46,18 @@ class Player
     }
     checkCollision(obstacle)
     {
-        console.log("obstacle",obstacle.position);
-        console.log("player",this.x);
-        if(this.gameBoard.clientWidth - this.x - this.playerElement.clientWidth <= obstacle.position)
+        console.log(obstacle.posY, this.playerElement.clientHeight)
+        if((this.gameBoard.clientWidth - this.x - this.playerElement.clientWidth <= obstacle.posX
+            && this.y <= obstacle.element.clientHeight + 50 && obstacle.type === "obs-down")
+            )
         {
             console.log("GameOver")
             this.gameOver = true;
         }
-            
+        // else if(obstacle.posY <= this.playerElement.clientHeight + 50 && obstacle.type === "obs-top")
+        // {
+        //     console.log("Game over dos")
+        //     this.gameOver = true;
+        // }
     }
-
 }
