@@ -29,10 +29,17 @@ body{
     background-color: rgb(255, 251, 0);
     position: absolute;
     border-radius: 50%;
-    bottom: 0px;
+    bottom: 50px;
     left: 10px;
 }
 
+#floor{
+    height: 50px;
+    width: 100%;
+    background-color: bisque;
+    position: absolute;
+    bottom: 0;
+}
 #score{
     margin:0;
     color:white;
@@ -41,6 +48,16 @@ body{
     top: 10px;
     
 }
+
+.obstacle{
+    width:30px;
+    height:30px;
+    background-color: rgb(255, 140, 0);
+    position: absolute;
+    bottom: 50px;
+    right: 0px;
+}
+
 /* .timer{
     color: white;
     position: absolute;
