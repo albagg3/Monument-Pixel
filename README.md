@@ -23,7 +23,7 @@ If I have time I will add upgrades:
 
 - How to move a div: The position os this element has to be absolute and the container should be relative
 
-## Create a game loop
+### Create a game loop
 
 - The game loop needs to be there only if we want to make things move without the user interaction 
 ```
