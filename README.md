@@ -3,14 +3,19 @@
 # JS-Game
 
 ## My project idea
+The initial idea of my game is to do something similar to the Dinosaur T-Rex Game.
+The player should be able to jump and avoid the obstacle. 
+If the player and the obstacle collide the game is over.
 
-add image
+![](./project-planning/main-idea.png)
+
 ## Backlog
 
-The initial idea is this one but I'm also thinking about adding this items if I have time:
--
-- 
-- 
+If I have time I will add upgrades:
+
+- Choose different scenarios/players
+- Jump and go down
+- Collect a gun to shoot enemies
 
 
 
