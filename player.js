@@ -46,18 +46,33 @@ class Player
     }
     checkCollision(obstacle)
     {
+        const playerPosition = this.playerElement.getBoundingClientRect();
+        const obstaclePosition = obstacle.element.getBoundingClientRect();
         console.log(obstacle.posY, this.playerElement.clientHeight)
-        if((this.gameBoard.clientWidth - this.x - this.playerElement.clientWidth <= obstacle.posX
-            && this.y <= obstacle.element.clientHeight + 50 && obstacle.type === "obs-down")
-            )
+
+        if (playerPosition.x < obstaclePosition.x + obstaclePosition.width &&
+            playerPosition.x + playerPosition.width > obstaclePosition.x &&
+            playerPosition.y < obstaclePosition.y + obstaclePosition.height &&
+            playerPosition.y + playerPosition.height > obstaclePosition.y)
         {
-            console.log("GameOver")
+            console.log('COLLISSION DETECTED');
+            console.log("GameOver3")
             this.gameOver = true;
         }
-        // else if(obstacle.posY <= this.playerElement.clientHeight + 50 && obstacle.type === "obs-top")
+        // if((this.gameBoard.clientWidth - this.x - this.playerElement.clientWidth <= obstacle.posX
+        //     && this.y <= obstacle.element.clientHeight + 50 && obstacle.type === "obs-down")
+        //     )
+        // {
+        //     console.log("GameOver")
+        //     this.gameOver = true;
+        // }
+        // else if(this.gameBoard.clientWidth - this.x - this.playerElement.clientWidth <= obstacle.posX 
+        //     && obstacle.posY <= this.playerElement.clientHeight + 50 && obstacle.type === "obs-top"
+        //     &&)
         // {
         //     console.log("Game over dos")
         //     this.gameOver = true;
         // }
+        // if()
     }
 }
