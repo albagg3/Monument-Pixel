@@ -42,7 +42,7 @@ class Player
             this.y -= this.gravity;
         if(this.y <= 50)
             this.y = 50;
-        this.playerElement.style.bottom = `${newPlayer.y}px`
+        this.playerElement.style.bottom = `${this.y}px`
     }
     checkCollision(obstacle)
     {
@@ -56,20 +56,5 @@ class Player
             console.log("GameOver3")
             this.gameOver = true;
         }
-        // if((this.gameBoard.clientWidth - this.x - this.playerElement.clientWidth <= obstacle.posX
-        //     && this.y <= obstacle.element.clientHeight + 50 && obstacle.type === "obs-down")
-        //     )
-        // {
-        //     console.log("GameOver")
-        //     this.gameOver = true;
-        // }
-        // else if(this.gameBoard.clientWidth - this.x - this.playerElement.clientWidth <= obstacle.posX 
-        //     && obstacle.posY <= this.playerElement.clientHeight + 50 && obstacle.type === "obs-top"
-        //     &&)
-        // {
-        //     console.log("Game over dos")
-        //     this.gameOver = true;
-        // }
-        // if()
     }
 }

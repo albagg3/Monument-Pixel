@@ -9,7 +9,9 @@ class Game
         this.limitDown = document.querySelector("#game-board").clientHeight;
         // this.startButtonElement = document.querySelector(".btn")
         this.obstacles = [];
-
+        this.backGround = document.querySelector("#background");
+        this.backGroundSpeed = 1;
+        this.backGroundX = 0;
         
         
     }
@@ -41,6 +43,16 @@ class Game
             }
         }
         
+    }
+    moveBackground()
+    {
+        console.log("entras????")
+        this.backGroundX -= this.backGroundSpeed;
+        this.backGround.style.backgroundPosition = `${this.backGroundX}px`
+        // if (this.backGroundX === this.backGround.clientWidth)
+        //     this.backGround.style.left = `${0}px`
+        // else
+        //     this.backGround.style.left = `${this.backGroundX}px`
     }
     
     

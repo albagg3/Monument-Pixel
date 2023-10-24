@@ -21,7 +21,7 @@ document.addEventListener("keydown", (event)=>{
 })
 document.addEventListener("keyup", (event)=>{
     event.preventDefault();
-   
+
     if (event.key === 'ArrowDown')
     {
         newPlayer.up();
@@ -48,6 +48,7 @@ const gameLoop = () =>{
     // console.log(frames);
     newPlayer.addGravity();
     walkingEffect(frames);
+    game.moveBackground();
     let random = (Math.floor(Math.random() * 3)*100);
     if (frames % random === 0)
         game.addObstacle();
