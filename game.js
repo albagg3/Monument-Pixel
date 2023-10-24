@@ -7,11 +7,14 @@ class Game
         this.gameBoardElement = document.querySelector('#game-board');
         this.limitLeft = document.querySelector("#game-board").clientWidth;
         this.limitDown = document.querySelector("#game-board").clientHeight;
+        this.score = document.querySelector("#score");
         // this.startButtonElement = document.querySelector(".btn")
         this.obstacles = [];
         this.backGround = document.querySelector("#background");
         this.backGroundSpeed = 1;
         this.backGroundX = 0;
+
+        this.points = 0;
         
         
     }
@@ -30,16 +33,18 @@ class Game
     }
     moveObstacle()
     {
+        
         for (let i = 0; i < this.obstacles.length; i++)
         {
             this.obstacles[i].posX += this.obstacles[i].obsSpeed;
             this.obstacles[i].element.style.right = `${this.obstacles[i].posX}px`
-        
             const obsSize = document.querySelector(".obstacle").clientWidth;
             if (this.obstacles[i].posX >= this.limitLeft - obsSize)
             {
+                this.points++;
                 this.obstacles[i].element.remove()
                 this.obstacles.shift(this.obstacles[i])
+                this.score.innerText = `${this.points}`;
             }
         }
         

@@ -20,7 +20,7 @@ body{
 }
 
 #background{
-    background-image: url("./images/background.png");
+    background-image: url("./images/background\ monument\ valley.png");
     background-size: 50vh; 
     background-position: 0;
     width:90vw;
@@ -60,6 +60,8 @@ body{
 
 
 #floor{
+    background-image: url("./images/floor2.png");
+    background-size:100px ;
     height: 50px;
     width: 100%;
     background-color: bisque;
