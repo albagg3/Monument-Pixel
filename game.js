@@ -46,13 +46,8 @@ class Game
     }
     moveBackground()
     {
-        console.log("entras????")
         this.backGroundX -= this.backGroundSpeed;
         this.backGround.style.backgroundPosition = `${this.backGroundX}px`
-        // if (this.backGroundX === this.backGround.clientWidth)
-        //     this.backGround.style.left = `${0}px`
-        // else
-        //     this.backGround.style.left = `${this.backGroundX}px`
     }
     
     

@@ -1,7 +1,8 @@
 console.log("index.js is working!")
 const game = new Game();
 const newPlayer = new Player();
-
+const gameOverTitle = document.querySelector(".game-over-title");
+const restartBtn = document.querySelector("#restart-btn");
 
 let gameLoopId;
 let frames = 0;
@@ -19,6 +20,8 @@ document.addEventListener("keydown", (event)=>{
     }
     newPlayer.playerElement.style.bottom = `${newPlayer.y}px`;
 })
+
+
 document.addEventListener("keyup", (event)=>{
     event.preventDefault();
 
@@ -58,10 +61,31 @@ const gameLoop = () =>{
         newPlayer.checkCollision(game.obstacles[i]);
     }
     if(newPlayer.y === 50)
-        newPlayer.isJumping = false;
-    gameLoopId = requestAnimationFrame(gameLoop);
+    newPlayer.isJumping = false;
+gameLoopId = requestAnimationFrame(gameLoop);
     if(newPlayer.gameOver)
+    {
+        
+        game.obstacles = [];
+        gameOverTitle.classList.remove("hidden")
+        restartBtn.classList.remove("hidden")
+       
+        obstaclesElements = document.querySelectorAll(".obstacle")
+        for(let i = 0; i < obstaclesElements.length; i++)
+        {
+            obstaclesElements[i].remove();
+        }
         cancelAnimationFrame(gameLoopId);
+    }
 }
 
+
+restartBtn.addEventListener('click', (e)=>{
+    console.log(e);
+    newPlayer.gameOver = false;
+    
+    gameOverTitle.classList.add("hidden")
+    restartBtn.classList.add("hidden")
+    gameLoop();
+})
 gameLoop();
