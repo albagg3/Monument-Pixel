@@ -29,10 +29,25 @@ document.addEventListener("keyup", (event)=>{
     newPlayer.playerElement.style.bottom = `${newPlayer.y}px`;
 })
 
+const walkingEffect = (timeframes)=>{
+    if (timeframes % 5 === 0)
+    {
+        newPlayer.playerElement.classList.add("walk1");
+        newPlayer.playerElement.classList.remove("walk2");
+    }
+    else
+    {
+        newPlayer.playerElement.classList.add("walk2");
+        newPlayer.playerElement.classList.remove("walk1");
+
+    }
+}
+
 const gameLoop = () =>{
     frames++;
     // console.log(frames);
     newPlayer.addGravity();
+    walkingEffect(frames);
     let random = (Math.floor(Math.random() * 3)*100);
     if (frames % random === 0)
         game.addObstacle();

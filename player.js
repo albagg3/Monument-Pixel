@@ -48,14 +48,11 @@ class Player
     {
         const playerPosition = this.playerElement.getBoundingClientRect();
         const obstaclePosition = obstacle.element.getBoundingClientRect();
-        console.log(obstacle.posY, this.playerElement.clientHeight)
-
         if (playerPosition.x < obstaclePosition.x + obstaclePosition.width &&
             playerPosition.x + playerPosition.width > obstaclePosition.x &&
             playerPosition.y < obstaclePosition.y + obstaclePosition.height &&
             playerPosition.y + playerPosition.height > obstaclePosition.y)
         {
-            console.log('COLLISSION DETECTED');
             console.log("GameOver3")
             this.gameOver = true;
         }
