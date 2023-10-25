@@ -45,6 +45,7 @@ const walkingEffect = (timeframes)=>{
 
 const gameLoop = () =>{
     frames++;
+    
     // console.log(frames);
     newPlayer.addGravity();
     walkingEffect(frames);
