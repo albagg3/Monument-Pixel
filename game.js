@@ -47,7 +47,6 @@ class Game
                 this.score.innerText = `${this.points}`;
             }
         }
-        
     }
     moveBackground()
     {

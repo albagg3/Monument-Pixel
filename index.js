@@ -70,7 +70,7 @@ gameLoopId = requestAnimationFrame(gameLoop);
         game.obstacles = [];
         gameOverTitle.classList.remove("hidden")
         restartBtn.classList.remove("hidden")
-        
+     
         obstaclesElements = document.querySelectorAll(".obstacle")
         for(let i = 0; i < obstaclesElements.length; i++)
         {
@@ -87,6 +87,8 @@ restartBtn.addEventListener('click', (e)=>{
     
     gameOverTitle.classList.add("hidden")
     restartBtn.classList.add("hidden")
+    game.points = 0;
+    game.score.innerText = `${game.points}`;
     gameLoop();
 })
 gameLoop();
