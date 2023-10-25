@@ -70,7 +70,7 @@ gameLoopId = requestAnimationFrame(gameLoop);
         game.obstacles = [];
         gameOverTitle.classList.remove("hidden")
         restartBtn.classList.remove("hidden")
-       
+        
         obstaclesElements = document.querySelectorAll(".obstacle")
         for(let i = 0; i < obstaclesElements.length; i++)
         {

@@ -26,7 +26,7 @@ class Game
     {
 
         const newobstacleElem =  document.createElement("div");
-        const obstacle= new Obstacle(newobstacleElem)
+        const obstacle = new Obstacle(newobstacleElem)
         obstacle.createObstacle();
         this.gameBoardElement.append(obstacle.element);
         this.obstacles.push(obstacle);

@@ -20,7 +20,7 @@ body{
 }
 
 #background{
-    background-image: url("./images/background\ monument\ valley.png");
+    background-image: url("./images/background_monument_valley.png");
     background-size: 50vh; 
     background-position: 0;
     width:90vw;
@@ -80,7 +80,7 @@ body{
 .obstacle{
     width:30px;
     height:30px;
-    background-color: rgb(255, 140, 0);
+    background-color: rgb(235, 214, 128);
     position: absolute;
     
 }
