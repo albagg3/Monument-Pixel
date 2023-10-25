@@ -80,16 +80,19 @@ body{
 .obstacle{
     width:30px;
     height:30px;
-    background-color: rgb(235, 214, 128);
+    /* background-image: url("./images/obstacle_down.png"); */
+    /* background-color: rgb(235, 214, 128); */
     position: absolute;
     
 }
 
 .obs-down{
+    background-image: url("./images/obstacle_down.png");
     bottom: 50px;
     right: 0px;
 }
 .obs-top{
+    background-image: url("./images/obstacle_up.png");
     bottom: 90px;
     right: 0px;
 }
