@@ -53,6 +53,7 @@ const gameLoop = () =>{
     newPlayer.addGravity();
     walkingEffect(frames);
     game.moveBackground();
+    game.moveFloor();
     let random = (Math.floor(Math.random() * 3)*100);
     if (frames % random === 0)
         game.addObstacle();
@@ -70,7 +71,6 @@ gameLoopId = requestAnimationFrame(gameLoop);
         game.obstacles = [];
         gameOverTitle.classList.remove("hidden")
         restartBtn.classList.remove("hidden")
-     
         obstaclesElements = document.querySelectorAll(".obstacle")
         for(let i = 0; i < obstaclesElements.length; i++)
         {

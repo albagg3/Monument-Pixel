@@ -62,10 +62,10 @@ body{
 #floor{
     background-image: url("./images/floor2.png");
     background-size:100px ;
+    background-position: 0;
     height: 50px;
     width: 100%;
-    background-color: bisque;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
 }
 #score{
@@ -122,11 +122,14 @@ body{
     height: 5em;
     background-color: beige;
     border-radius: 50%;
-    border:solid 4px beige;
+    /* border:solid 4px beige; */
+    border:none;
     color:  rgb(78, 76, 76);
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.8em;
     font-weight: bolder;
+    -webkit-box-shadow: inset -2px 0px 10px 10px #454040; 
+    box-shadow: inset -2px 0px 15px 5px #817f7f;
     
 }
 

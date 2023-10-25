@@ -14,6 +14,9 @@ class Game
         this.backGroundSpeed = 1;
         this.backGroundX = 0;
 
+        this.floor = document.querySelector("#floor"); 
+        this.floorSpeed = 0; 
+        this.floorX = 0; 
         this.points = 0;
         
         
@@ -54,5 +57,9 @@ class Game
         this.backGround.style.backgroundPosition = `${this.backGroundX}px`
     }
     
-    
+    moveFloor()
+    {
+        this.floorX -= this.floorSpeed;
+        this.floor.style.backgroundPosition = `${this.floorX}px` ;
+    }
 }
