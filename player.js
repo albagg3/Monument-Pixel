@@ -10,7 +10,9 @@ class Player
         this.isJumping = false;
         this.playerElement = document.querySelector("#player")
         this.gameBoard = document.querySelector("#game-board")
-        this.gameOver = false;
+        this.starsContainer = document.querySelector(".stars-container")
+        this.stars = [];
+        
     }
 
     jump()
@@ -40,6 +42,23 @@ class Player
         }
     }
 
+    shoot(obstaclesArr){
+        if(this.stars > 0)
+        {
+            this.stars--;
+            document.querySelector(".reward-accum").remove();
+            const starBulletElem =  document.createElement("div");
+            const bullet = new Star()
+            starBullet.classList.add("bullet")
+            this.gameBoard.append(starBulletElem);
+            this.stars.push(bullet);
+            
+            console.log("shoot");
+            
+
+            
+        }
+    }
     addGravity()
     {
         if(this.y > 50)
@@ -58,8 +77,28 @@ class Player
             playerPosition.y < obstaclePosition.y + obstaclePosition.height &&
             playerPosition.y + playerPosition.height > obstaclePosition.y)
         {
-            console.log("GameOver3")
-            this.gameOver = true;
+            if (obstacle.type === "reward")
+            {
+                if(this.stars < 5)
+                {
+                    obstacle.element.classList.add("hidden")
+                    // obstacle.element.remove();
+                    this.stars++;
+                    console.log(this.stars)
+                    const starElem =  document.createElement("div");
+                    starElem.classList.add("reward-accum")
+                    this.starsContainer.append(starElem);
+                }
+                else
+                {
+                    return ;
+                }
+            }
+            else
+            {
+                console.log("GameOver3")
+                this.gameOver = true;
+            }
         }
     }
 }

@@ -32,19 +32,22 @@ body{
 
 #player{
     position: absolute;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     bottom: 50px;
     right: calc(100% - 40px);
 }
+
 .stand-player{
     width:30px;
     height:60px;
 }
+
 .bend-player{
 
     width:30px;
     height:30px ;
 }
+
 .walk1{
     background-image: url("./images/walk2.png");
 }
@@ -89,12 +92,46 @@ body{
     bottom: 50px;
     right: 0px;
 }
+
 .obs-top{
     background-image: url("./images/obstacle_up.png");
     bottom: 90px;
     right: 0px;
 }
+.reward{
+    background-image: url("./images/star.png");
+    bottom: 50px;
+    right: 0px;
+}
 
+.stars-container{
+    display: flex;
+}
+.absolute{
+    position: absolute;
+    top:35px;
+    left:10px;
+}
+.reward-accum{
+    background-image: url("./images/star.png");
+    width:30px;
+    height: 30px;
+    top:35px;
+    left: 0px;
+    /* position:absolute; */
+}
+
+.bullet{
+    position: absolute;
+    /* border-radius: 50%; */
+    width:10px;
+    height: 10px;
+    background-image: url("./images/star.png");
+    background-size: cover;
+    bottom: 70px;
+    right: calc(100% - 40px);
+    z-index: 1;
+}
 .game-over-title{
     position: absolute;
     font-size: 4em;

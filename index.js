@@ -11,7 +11,8 @@ let level = 1;
 
 document.addEventListener("keydown", (event)=>{
     event.preventDefault();
-    // console.log(event);
+    console.log(event);
+
     if (event.key === 'ArrowUp')
     {
         newPlayer.jump();
@@ -20,7 +21,12 @@ document.addEventListener("keydown", (event)=>{
     {
         newPlayer.down();
     }
+    if( event.key === ' ')
+    {
+        newPlayer.shoot(game.obstacles);
+    }
     newPlayer.playerElement.style.bottom = `${newPlayer.y}px`;
+    
 })
 
 document.addEventListener("keyup", (event)=>{
@@ -67,7 +73,9 @@ const gameLoop = () =>{
         newPlayer.checkCollision(game.obstacles[i]);
     }
     if(newPlayer.y === 50)
-    newPlayer.isJumping = false;
+    {
+        newPlayer.isJumping = false;
+    }
     gameLoopId = requestAnimationFrame(gameLoop);
     if(newPlayer.gameOver)
     {
@@ -89,6 +97,16 @@ restartBtn.addEventListener('click', (e)=>{
     newPlayer.gameOver = false;
     gameOverTitle.classList.add("hidden")
     restartBtn.classList.add("hidden")
+    const starsleft = document.querySelectorAll(".reward-accum");
+    console.log(starsleft);
+    if(starsleft.length !== 0)
+    {
+        for(let i = 0; i < starsleft.length ; i++)
+        {
+            starsleft[i].remove();
+        }
+    }
+    speed = 3;
     game.points = 0;
     game.score.innerText = `${game.points}`;
     level = 1;

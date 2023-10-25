@@ -52,6 +52,7 @@ class Game
             }
         }
     }
+    
 
     moveBackground()
     {
