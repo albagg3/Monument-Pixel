@@ -12,6 +12,7 @@ class Player
         this.gameBoard = document.querySelector("#game-board")
         this.gameOver = false;
     }
+
     jump()
     {
         if(!this.isJumping && !this.gameOver)
@@ -20,6 +21,7 @@ class Player
             this.y += this.speed;
         }
     }
+
     down()
     {
         if(!this.gameOver)
@@ -28,6 +30,7 @@ class Player
             this.playerElement.classList.add("bend-player");
         }
     }
+
     up()
     {
         if(!this.gameOver)
@@ -36,6 +39,7 @@ class Player
             this.playerElement.classList.remove("bend-player");
         }
     }
+
     addGravity()
     {
         if(this.y > 50)
@@ -44,6 +48,7 @@ class Player
             this.y = 50;
         this.playerElement.style.bottom = `${this.y}px`
     }
+
     checkCollision(obstacle)
     {
         const playerPosition = this.playerElement.getBoundingClientRect();

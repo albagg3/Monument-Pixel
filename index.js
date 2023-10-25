@@ -3,7 +3,6 @@ const game = new Game();
 const newPlayer = new Player();
 const gameOverTitle = document.querySelector(".game-over-title");
 const restartBtn = document.querySelector("#restart-btn");
-
 let gameLoopId;
 let frames = 0;
 
@@ -21,10 +20,8 @@ document.addEventListener("keydown", (event)=>{
     newPlayer.playerElement.style.bottom = `${newPlayer.y}px`;
 })
 
-
 document.addEventListener("keyup", (event)=>{
     event.preventDefault();
-
     if (event.key === 'ArrowDown')
     {
         newPlayer.up();
@@ -42,7 +39,6 @@ const walkingEffect = (timeframes)=>{
     {
         newPlayer.playerElement.classList.add("walk2");
         newPlayer.playerElement.classList.remove("walk1");
-
     }
 }
 
@@ -64,10 +60,10 @@ const gameLoop = () =>{
     }
     if(newPlayer.y === 50)
     newPlayer.isJumping = false;
-gameLoopId = requestAnimationFrame(gameLoop);
+    gameLoopId = requestAnimationFrame(gameLoop);
     if(newPlayer.gameOver)
     {
-        
+        gameOverTitle.innerText = "GAME OVER"
         game.obstacles = [];
         gameOverTitle.classList.remove("hidden")
         restartBtn.classList.remove("hidden")
@@ -80,15 +76,12 @@ gameLoopId = requestAnimationFrame(gameLoop);
     }
 }
 
-
 restartBtn.addEventListener('click', (e)=>{
     console.log(e);
     newPlayer.gameOver = false;
-    
     gameOverTitle.classList.add("hidden")
     restartBtn.classList.add("hidden")
     game.points = 0;
     game.score.innerText = `${game.points}`;
     gameLoop();
 })
-gameLoop();

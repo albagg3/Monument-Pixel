@@ -11,6 +11,7 @@ class Obstacle
         this.obsSpeed = 3;
         this.obstacleType = ["obs-top", "obs-down"];
     }
+
     createObstacle()
     {
         let randomObs = Math.floor(Math.random() * 2)
