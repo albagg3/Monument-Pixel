@@ -70,6 +70,14 @@ body{
     top: 10px;
 }
 
+#level{
+    margin:0;
+    color:white;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
 .obstacle{
     width:30px;
     height:30px;

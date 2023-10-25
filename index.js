@@ -3,8 +3,11 @@ const game = new Game();
 const newPlayer = new Player();
 const gameOverTitle = document.querySelector(".game-over-title");
 const restartBtn = document.querySelector("#restart-btn");
+const levelElement = document.querySelector("#level");
 let gameLoopId;
 let frames = 0;
+let speed = 3;
+let level = 1;
 
 document.addEventListener("keydown", (event)=>{
     event.preventDefault();
@@ -45,8 +48,6 @@ const walkingEffect = (timeframes)=>{
 
 const gameLoop = () =>{
     frames++;
-    
-    // console.log(frames);
     newPlayer.addGravity();
     walkingEffect(frames);
     game.moveBackground();
@@ -54,7 +55,13 @@ const gameLoop = () =>{
     let random = (Math.floor(Math.random() * 3)*100);
     if (frames % random === 0)
         game.addObstacle();
-    game.moveObstacle();
+    if(frames % 600  === 0)
+        {
+            level++
+            speed++;
+            levelElement.innerText = `LEVEL ${level}`
+        }
+    game.moveObstacle(speed);
     for(let i = 0; i < game.obstacles.length; i++)
     {
         newPlayer.checkCollision(game.obstacles[i]);
@@ -84,5 +91,7 @@ restartBtn.addEventListener('click', (e)=>{
     restartBtn.classList.add("hidden")
     game.points = 0;
     game.score.innerText = `${game.points}`;
+    level = 1;
+    levelElement.innerText = `LEVEL ${level}`;
     gameLoop();
 })

@@ -35,10 +35,11 @@ class Game
         this.obstacles.push(obstacle);
     }
 
-    moveObstacle()
+    moveObstacle(speed)
     {
         for (let i = 0; i < this.obstacles.length; i++)
         {
+            this.obstacles[i].obsSpeed = speed;
             this.obstacles[i].posX += this.obstacles[i].obsSpeed;
             this.obstacles[i].element.style.right = `${this.obstacles[i].posX}px`
             const obsSize = document.querySelector(".obstacle").clientWidth;
