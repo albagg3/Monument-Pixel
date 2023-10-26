@@ -3,7 +3,7 @@ console.log("gameBoard.js is working")
 class Game
 {
     constructor(){
-        this.score = 0;
+        // this.score = 0;
         this.gameBoardElement = document.querySelector('#game-board');
         this.limitLeft = document.querySelector("#game-board").clientWidth;
         this.limitDown = document.querySelector("#game-board").clientHeight;
@@ -19,12 +19,15 @@ class Game
         this.floorX = 0;
         //Score 
         this.points = 0;
+
+        this.bulletArr=[];
+        
     }
 
-    showScore()
-    {
-        return this.score;
-    }
+    // showScore()
+    // {
+    //     return this.score;
+    // }
 
     addObstacle()
     {
@@ -53,7 +56,23 @@ class Game
         }
     }
     
+    moveBullet(){
+        
+        this.bulletArr.forEach((bullet)=>{
 
+            if(bullet.positionX < this.gameBoardElement.clientWidth)
+            {
+                bullet.positionX += bullet.bulletSpeed;
+            }
+            bullet.bulletElement.style.left = `${bullet.positionX}px`
+            if(bullet.collision || bullet.positionX >= this.gameBoardElement.clientWidth)
+            {
+                bullet.bulletElement.remove()
+                
+            }
+            bullet.colisionStarObstacle(this.obstacles)
+        })
+    }
     moveBackground()
     {
         this.backGroundX -= this.backGroundSpeed;

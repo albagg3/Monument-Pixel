@@ -8,10 +8,11 @@ let gameLoopId;
 let frames = 0;
 let speed = 3;
 let level = 1;
+let ongoingShooting = false;
 
 document.addEventListener("keydown", (event)=>{
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
 
     if (event.key === 'ArrowUp')
     {
@@ -23,7 +24,17 @@ document.addEventListener("keydown", (event)=>{
     }
     if( event.key === ' ')
     {
-        newPlayer.shoot(game.obstacles);
+        if(newPlayer.stars > 0 )
+        {
+            newPlayer.stars--;
+            const bulletElem =  document.createElement("div");
+            const bullet = new Bullet(bulletElem)
+            console.log(game.bulletArr);
+            bulletElem.classList.add("bullet")
+            game.bulletArr.push( bullet);
+            game.gameBoardElement.append(bulletElem);
+            document.querySelector(".reward-accum").remove();
+        }
     }
     newPlayer.playerElement.style.bottom = `${newPlayer.y}px`;
     
@@ -68,6 +79,12 @@ const gameLoop = () =>{
             levelElement.innerText = `LEVEL ${level}`
         }
     game.moveObstacle(speed);
+    if(game.bulletArr.length > 0)
+    {
+        console.log("entro")
+        game.moveBullet()
+    }
+
     for(let i = 0; i < game.obstacles.length; i++)
     {
         newPlayer.checkCollision(game.obstacles[i]);
