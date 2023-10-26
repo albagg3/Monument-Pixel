@@ -7,6 +7,7 @@ class Bullet
         this.positionX = this.bulletElement.getBoundingClientRect().x
         this.bulletSpeed = 5;
         this.collision = false;
+        this.explosion = new Audio("./music/Torpedo+Explosion.mp3")
 
     }
 
@@ -25,7 +26,7 @@ class Bullet
                         return;
                     obstacle[i].element.classList.add("hidden")
                     this.collision = true;
-                    
+                    this.explosion.play();
                     console.log("COLISIONNNNN")
                 }
         }

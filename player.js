@@ -13,6 +13,7 @@ class Player
         this.starsContainer = document.querySelector(".stars-container")
         // this.bullets = [];
         this.stars = 0;
+        this.starWin = new Audio("./music/star.wav")
         
     }
 
@@ -43,24 +44,6 @@ class Player
         }
     }
 
-    // shoot(){
-    //     if(this.stars > 0)
-    //     {
-    //         console.log("shoot");
-    //         this.stars--;
-    //         document.querySelector(".reward-accum").remove();
-    //         console.log("bala",this.bullets[0])
-
-    //         this.bullets[0].bulletElement.classList.remove("hidden")
-    //         console.log("bulletX: ",this.bullets[0].positionX , "board: ", this.gameBoard.clientWidth)
-    //         if(this.bullets[0].positionX < this.gameBoard.clientWidth)
-    //         {
-    //             this.bullets[0].positionX += this.bullets[0].bulletSpeed;
-    //         }
-    //         this.bullets[0].bulletElement.style.right = `${this.bullets[0].positionX}px`;
-    //     }
-    // }
-    
     addGravity()
     {
         if(this.y > 50)
@@ -83,6 +66,7 @@ class Player
             {
                 if(this.stars < 5)
                 {
+                    this.starWin.play()
                     //handle stars
                     obstacle.element.classList.add("hidden")
                     this.stars++;
@@ -91,14 +75,6 @@ class Player
                     starElem.classList.add("reward-accum")
                     this.starsContainer.append(starElem);
 
-                    //handle bullets
-                    // const bulletElem =  document.createElement("div");
-                    // const bullet = new Bullet(bulletElem)
-                    // console.log(bullet.bulletElement);
-                    // bullet.bulletElement.classList.add("bullet")
-                    // bullet.bulletElement.classList.add("hidden")
-                    // this.gameBoard.append(bullet.bulletElement);
-                    // this.bullets.push(bullet);
                 }
                 else
                 {

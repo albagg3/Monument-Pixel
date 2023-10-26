@@ -10,10 +10,10 @@ let speed = 3;
 let level = 1;
 let ongoingShooting = false;
 
+const monumentValleyMusic = new Audio("./music/01 Amateur Cartography.mp3")
+
 document.addEventListener("keydown", (event)=>{
     event.preventDefault();
-    // console.log(event);
-
     if (event.key === 'ArrowUp')
     {
         newPlayer.jump();
@@ -62,7 +62,6 @@ const walkingEffect = (timeframes)=>{
     }
 }
 
-
 const gameLoop = () =>{
     frames++;
     newPlayer.addGravity();
@@ -84,7 +83,6 @@ const gameLoop = () =>{
         console.log("entro")
         game.moveBullet()
     }
-
     for(let i = 0; i < game.obstacles.length; i++)
     {
         newPlayer.checkCollision(game.obstacles[i]);
@@ -96,6 +94,7 @@ const gameLoop = () =>{
     gameLoopId = requestAnimationFrame(gameLoop);
     if(newPlayer.gameOver)
     {
+        monumentValleyMusic.pause()
         gameOverTitle.innerText = "GAME OVER"
         game.obstacles = [];
         gameOverTitle.classList.remove("hidden")
@@ -110,7 +109,7 @@ const gameLoop = () =>{
 }
 
 restartBtn.addEventListener('click', (e)=>{
-    console.log(e);
+    monumentValleyMusic.play()
     newPlayer.gameOver = false;
     gameOverTitle.classList.add("hidden")
     restartBtn.classList.add("hidden")
