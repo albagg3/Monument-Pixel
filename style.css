@@ -122,12 +122,10 @@ body{
     height: 30px;
     top:35px;
     left: 0px;
-    /* position:absolute; */
 }
 
 .bullet{
     position: absolute;
-    /* border-radius: 50%; */
     width:10px;
     height: 10px;
     background-image: url("./images/star.png");
@@ -166,6 +164,6 @@ body{
 }
 
 .btn:hover{
-   width:5.5em;
-   height: 5.5em;
+    width:5.5em;
+    height: 5.5em;
 }

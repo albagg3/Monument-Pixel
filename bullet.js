@@ -8,7 +8,6 @@ class Bullet
         this.bulletSpeed = 5;
         this.collision = false;
         this.explosion = new Audio("./music/Torpedo+Explosion.mp3")
-
     }
 
     colisionStarObstacle(obstacle)
@@ -21,19 +20,13 @@ class Bullet
                 bulletPosition.x + bulletPosition.width > obstaclePosition.x &&
                 bulletPosition.y < obstaclePosition.y + obstaclePosition.height &&
                 bulletPosition.y + bulletPosition.height > obstaclePosition.y )
-                {
-                    if(obstacle[i].element.className.includes("reward"))
-                        return;
-                    obstacle[i].element.classList.add("hidden")
-                    this.collision = true;
-                    this.explosion.play();
-                    console.log("COLISIONNNNN")
-                }
+            {
+                if(obstacle[i].element.className.includes("reward"))
+                    return;
+                obstacle[i].element.classList.add("hidden")
+                this.collision = true;
+                this.explosion.play();
+            }
         }
-    
-    }
-    moveStar()
-    {
-
     }
 }

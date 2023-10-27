@@ -11,10 +11,8 @@ class Player
         this.playerElement = document.querySelector("#player")
         this.gameBoard = document.querySelector("#game-board")
         this.starsContainer = document.querySelector(".stars-container")
-        // this.bullets = [];
         this.stars = 0;
         this.starWin = new Audio("./music/star.wav")
-        
     }
 
     jump()
@@ -70,11 +68,9 @@ class Player
                     //handle stars
                     obstacle.element.classList.add("hidden")
                     this.stars++;
-                    console.log(this.stars)
                     const starElem =  document.createElement("div");
                     starElem.classList.add("reward-accum")
                     this.starsContainer.append(starElem);
-
                 }
                 else
                 {
@@ -83,7 +79,6 @@ class Player
             }
             else
             {
-                console.log("GameOver3")
                 this.gameOver = true;
             }
         }

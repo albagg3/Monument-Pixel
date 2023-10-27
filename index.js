@@ -29,7 +29,6 @@ document.addEventListener("keydown", (event)=>{
             newPlayer.stars--;
             const bulletElem =  document.createElement("div");
             const bullet = new Bullet(bulletElem)
-            console.log(game.bulletArr);
             bulletElem.classList.add("bullet")
             game.bulletArr.push( bullet);
             game.gameBoardElement.append(bulletElem);
@@ -37,7 +36,6 @@ document.addEventListener("keydown", (event)=>{
         }
     }
     newPlayer.playerElement.style.bottom = `${newPlayer.y}px`;
-    
 })
 
 document.addEventListener("keyup", (event)=>{
@@ -80,7 +78,6 @@ const gameLoop = () =>{
     game.moveObstacle(speed);
     if(game.bulletArr.length > 0)
     {
-        console.log("entro")
         game.moveBullet()
     }
     for(let i = 0; i < game.obstacles.length; i++)
@@ -114,7 +111,6 @@ restartBtn.addEventListener('click', (e)=>{
     gameOverTitle.classList.add("hidden")
     restartBtn.classList.add("hidden")
     const starsleft = document.querySelectorAll(".reward-accum");
-    console.log(starsleft);
     if(starsleft.length !== 0)
     {
         for(let i = 0; i < starsleft.length ; i++)
