@@ -2,7 +2,7 @@
 
 # JS-Game
 You can try it here : 
- https://albagg3.github.io/js-game/
+ https://albagg3.github.io/Monument-Pixel/
 ## My project idea
 The initial idea of my game is to do something similar to the Dinosaur T-Rex Game.
 The player should be able to jump and avoid the obstacle. 
